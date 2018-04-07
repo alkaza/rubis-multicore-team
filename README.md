@@ -14,7 +14,7 @@ GPU : Geforce GTX 1050 (Notebook)
       SM61 or SM_61, compute_61
 
 ## Instructions
-Scripts in this repository are step-by-step installation instruction, please read and understand them before use
+Scripts in this repository are step-by-step installation instruction, please read and understand them before use (some changes are necessary for different target platforms)
 
 Running commands one-by-one is recommended, run scripts at your own risk
 
