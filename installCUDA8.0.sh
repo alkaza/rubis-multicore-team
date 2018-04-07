@@ -31,11 +31,31 @@ sudo apt-get install cuda=8.0.61-1
 
 echo "Environment Setup"
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+echo "export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}" >> ~/.bashrc
+
+echo "Verify CUDA Toolkit version"
+nvcc -V
 
 echo "Verify driver version"
 cat /proc/driver/nvidia/version
 
 echo "Verify installation"
 nvidia-smi
+
+echo "Install Writable Samples"
+cuda-install-samples-8.0.sh $HOME
+
+echo "Compile examples"
+cd $HOME/NVIDIA_CUDA-8.0_Samples
+# If driver version installed is not nvidia-364 (hard coded)
+# Replace nvidia-384 with your driver version
+find $HOME/NVIDIA_CUDA-8.0_Samples -type f -execdir sed -i 's/UBUNTU_PKG_NAME = "nvidia-367"/UBUNTU_PKG_NAME = "nvidia-384"/g' {} +
+make
+
+echo "Running binaries"
+cd $HOME/NVIDIA_CUDA-8.0_Samples/bin/x86_64/linux/release
+./deviceQuery
+./bandwidthTest
+
+
 
