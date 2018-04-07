@@ -16,7 +16,7 @@ GPU : Geforce GTX 1050 (Notebook)
 ## Instructions
 Scripts in this repository are step-by-step installation instruction, please read and understand them before use (some changes are necessary for different target platforms)
 
-Running commands one-by-one is recommended, run scripts at your own risk
+Running commands one-by-one is recommended to be able to resolve issues that might occur, run scripts at your own risk
 
 ## Resources
 [Matching SM architectures (CUDA arch and CUDA gencode) for various NVIDIA cards](http://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
