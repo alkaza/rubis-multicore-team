@@ -48,8 +48,8 @@ cuda-install-samples-8.0.sh $HOME
 echo "Compile examples"
 cd $HOME/NVIDIA_CUDA-8.0_Samples
 # If driver version installed is not nvidia-364 (hard coded)
-# Replace nvidia-384 with your driver version
-find $HOME/NVIDIA_CUDA-8.0_Samples -type f -execdir sed -i 's/UBUNTU_PKG_NAME = "nvidia-367"/UBUNTU_PKG_NAME = "nvidia-384"/g' {} +
+# Replace nvidia-390 (currently most recent) with your driver version
+find $HOME/NVIDIA_CUDA-8.0_Samples -type f -execdir sed -i 's/UBUNTU_PKG_NAME = "nvidia-367"/UBUNTU_PKG_NAME = "nvidia-390"/g' {} +
 make
 
 echo "Running binaries"
