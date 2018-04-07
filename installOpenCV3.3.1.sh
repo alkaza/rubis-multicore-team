@@ -88,7 +88,7 @@ make -j4
 
 echo "Sanity check"
 make -j4
-make -j4
+make
 
 echo "Test OpenCV"
 # make test ARGS="--verbose --parallel 4" | tee make_test_verbose.log
