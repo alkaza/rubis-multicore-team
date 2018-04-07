@@ -20,3 +20,6 @@ Running commands one-by-one is recommended, run scripts at your own risk
 
 ## Resources
 [Matching SM architectures (CUDA arch and CUDA gencode) for various NVIDIA cards](http://arnon.dk/matching-sm-architectures-arch-and-gencode-for-various-nvidia-cards/)
+
+[OpenCV with CUDA for Tegra](https://docs.opencv.org/3.2.0/d6/d15/tutorial_building_tegra_cuda.html)
+
