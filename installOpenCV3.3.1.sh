@@ -75,7 +75,9 @@ cmake \
     -DWITH_1394=OFF \
     -DWITH_OPENEXR=OFF \
     -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0 \
-    -DCUDA_ARCH_PTX="Auto" \
+    -DCUDA_ARCH_BIN=6.1 \
+    -DCUDA_ARCH_PTX="" \
+    -DCUDA_GENERATION="Pascal" \
     -DINSTALL_C_EXAMPLES=ON \
     -DINSTALL_TESTS=ON \
     -DOPENCV_TEST_DATA_PATH=../opencv_extra/testdata \
@@ -85,8 +87,8 @@ echo "Build OpenCV with make"
 make -j4
 
 echo "Sanity check"
-make
-make
+make -j4
+make -j4
 
 echo "Test OpenCV"
 # make test ARGS="--verbose --parallel 4" | tee make_test_verbose.log
@@ -95,4 +97,3 @@ make test ARGS="--parallel 4" | tee make_test.log
 echo "Install OpenCV"
 read -p "Press [enter] to continue"
 sudo make install
-
