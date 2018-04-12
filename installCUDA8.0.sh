@@ -31,7 +31,7 @@ sudo apt-get install cuda=8.0.61-1
 
 echo "Environment Setup"
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-echo "export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}" >> ~/.bashrc
+echo "export PATH=/usr/local/cuda-8.0/bin:$PATH" >> ~/.bashrc
 
 echo "Verify CUDA Toolkit version"
 nvcc -V
