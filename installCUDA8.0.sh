@@ -15,7 +15,7 @@ echo "Use the following commands to uninstall a RPM/Deb installation:"
 echo "    $ sudo apt-get --purge remove <package>"
 
 read -p "Would you like to continue? (yes/no): " -r answer
-case $answer in
+case "$answer" in
     [Y/y]*) ;;
     *) exit 1 ;;
 esac
@@ -54,9 +54,9 @@ esac
 echo
 
 echo "Verify CUDA-capable GPU:"
-if ! lspci | grep -i nvidia ; then
+if ! lspci | grep -i "nvidia" ; then
     sudo update-pciids
-    if ! lspci | grep -i nvidia ; then
+    if ! lspci | grep -i "nvidia" ; then
         echo "Unable to find NVIDIA GPU"
         exit 1
     fi
@@ -77,11 +77,11 @@ echo
 echo "Verify correct kernel headers:"
 KERNEL=$(uname -r)
 echo "Kernel version: $KERNEL"
-sudo apt-get install linux-headers-$KERNEL
+sudo apt-get install "linux-headers-$KERNEL"
 echo
 
 echo "Installing NVIDIA CUDA Toolkit 8.0"
-if ! nvcc -V | grep -iq V8.0.61 ; then
+if ! nvcc -V | grep -q "V8.0.61" ; then
     echo "Downloading $DEB from $DEB_LINK"
     if [ ! -f "$HOME/Downloads/$DEB" ]; then
         wget -P "$HOME/Downloads" "$DEB_LINK"
@@ -112,7 +112,7 @@ else
     echo "NVIDIA CUDA Toolkit 8.0 already installed"
 fi
 
-if ! grep -qi cuda-8.0 ~/.bashrc ; then
+if ! grep -q "cuda-8.0" "$HOME/.bashrc" ; then
     echo "export PATH=/usr/local/cuda-8.0/bin:$PATH" >> "$HOME/.bashrc"
     source "$HOME/.bashrc" 
 fi
