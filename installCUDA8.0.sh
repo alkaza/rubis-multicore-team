@@ -38,12 +38,6 @@ fi
 
 RELEASE=$(lsb_release -r -s)
 echo "Version: $RELEASE"
-
-if [ "$RELEASE" != "16.04" ] && [ "$RELEASE" != "14.04" ] ; then
-    echo "Installation is not compatible for your platform"
-    exit 1
-fi
-
 case "$RELEASE" in
     "16.04") 
         DEB="cuda-repo-ubuntu1604_8.0.61-1_amd64.deb"
@@ -57,19 +51,6 @@ case "$RELEASE" in
         echo "Installation is not compatible for your platform"
         exit 1 ;;
 esac
-
-if [ "$RELEASE" = "16.04" ] ; then
-    DEB="cuda-repo-ubuntu1604_8.0.61-1_amd64.deb"
-    DEB_LINK="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/$DEB"
-    IMD5="1f4dffe1f79061827c807e0266568731"
-elif [ "$RELEASE" = "14.04" ] ; then
-    DEB="cuda-repo-ubuntu1404_8.0.61-1_amd64.deb"
-    DEB_LINK="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/$DEB"
-    IMD5="cf41f620dcebccd7a669d8ef3f31aeac"
-else
-    echo "Installation is not compatible for your platform"
-    exit 1
-fi
 echo
 
 echo "Verify CUDA-capable GPU:"
