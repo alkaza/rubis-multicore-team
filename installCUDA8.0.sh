@@ -77,7 +77,7 @@ echo
 echo "Verify correct kernel headers:"
 KERNEL=$(uname -r)
 echo "Kernel version: $KERNEL"
-# sudo apt-get install linux-headers-$KERNEL
+sudo apt-get install linux-headers-$KERNEL
 echo
 
 echo "Installing NVIDIA CUDA Toolkit 8.0"
