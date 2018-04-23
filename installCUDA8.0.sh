@@ -95,7 +95,7 @@ if ! nvcc -V | grep -q "V8.0.61" ; then
     if ! md5sum "$HOME/Downloads/$DEB" | grep -iq "$IMD5" ; then
         echo "MD5 checksum mismatch, downloading again"
         rm "$HOME/Downloads/$DEB"
-        wget $DEB_LINK
+        wget -P "$HOME/Downloads" "$DEB_LINK"
         if ! md5sum "$HOME/Downloads/$DEB" | grep -iq "$IMD5" ; then
             echo "Unable to download"
             exit 1
