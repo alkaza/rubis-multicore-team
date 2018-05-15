@@ -1,5 +1,5 @@
 ## Instructions
-Scripts in this repository are step-by-step installation instruction, please read and understand them before use (some changes are necessary for different target platforms)
+Scripts in this repository are step-by-step instruction, please read and understand them before use (some changes are necessary for different target platforms)
 
 Running commands one-by-one is recommended to be able to resolve issues that might occur, run scripts at your own risk
 
