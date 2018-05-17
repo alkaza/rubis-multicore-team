@@ -7,11 +7,11 @@ ARCH=$(uname -i)
 RELEASE=$(lsb_release -sc)
 
 if [ "$RELEASE" = "trusty" ]; then
-	ROSDISTRO=indigo
-	echo "Installing ros-$ROSDISTRO"
+    ROSDISTRO=indigo
+    echo "Installing ros-$ROSDISTRO"
 elif [ "$RELEASE" = "xenial" ]; then
-	ROSDISTRO=kinetic
-	echo "Installing ros-$ROSDISTRO"
+    ROSDISTRO=kinetic
+    echo "Installing ros-$ROSDISTRO"
 else
     echo "Installation is not compatible for your platform"
     exit 1
@@ -29,11 +29,11 @@ if [ "$ARCH" = "x86_64" ]; then
 echo "Installing ROS-$ROSDISTRO Full Desktop"
     sudo apt-get -y install ros-"$ROSDISTRO"-desktop-full
 elif [ "$ARCH" = "aarch64" ]; then
-	echo "Installing ROS-$ROSDISTRO Barebones"
-	sudo apt-get -y install ros-"$ROSDISTRO"-ros-base
+    echo "Installing ROS-$ROSDISTRO Barebones"
+    sudo apt-get -y install ros-"$ROSDISTRO"-ros-base
 else
-	"Installation is not compatible for your platform"
-	exit 1
+    "Installation is not compatible for your platform"
+    exit 1
 fi
 
 # Initialize rosdep
